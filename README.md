@@ -98,7 +98,8 @@ Copy code
 ```
 sudo apt update -y
 sudo apt install docker.io
-sudo systemctl start docker 
+sudo systemctl start docker
+sudo systemctl enable docker
 sudo usermod -a -G docker ubuntu ##if you have any user name so replace this username 
 ```
 ### Restart the EC2 Instance:
@@ -117,6 +118,44 @@ docker run -itd mohit -p 80:80 myimage:1
 ```
 now, your application should be running on your EC2 instance.
 if you want to check so copy your public ip and paste the browser and check.
+
+now go your github account and go your repo and click setting option and find action  then 
+choose runners and click new self hosted and select your desired os 
+by the i like ubuntu so i choose ubuntu system.
+after then go to your ec2 terminal and 
+copy all command that runners give we and paste ec2 terminal for configure github action connect with ec2 instance.
+for example this command :
+
+```
+# Create a folder
+mkdir actions-runner && cd actions-runner
+# Download the latest runner package
+curl -o actions-runner-linux-x64-2.313.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.313.0/actions-runner-linux-x64-2.313.0.tar.gz
+# Optional: Validate the hash
+echo "56910d6628b41f99d9a1c5fe9df54981ad5d8c9e42fc14899dcc177e222e71c4  actions-runner-linux-x64-2.313.0.tar.gz" | shasum -a 256 -c# Extract the installer
+tar xzf ./actions-runner-linux-x64-2.313.0.tar.gz
+
+```
+
+```
+# Create the runner and start the configuration experience
+./config.sh --url https://github.com/mohitgaur1272/ci_cd_deployment_git_ec2 --token BBBLUL6FWWFXPSWRXXR5R6DF3GDW4
+# Last step, run it!
+./svc.sh
+./run.sh
+```
+```
+# Use this YAML in your workflow file for each job
+runs-on: self-hosted
+```
+
+after this configuration go your repo github action you will see new pipeline and 
+As soon as you push the code changes, your pipeline will automatically be triggered and run.
+
+if you have any error in pipelime so check logs and fix bugs and run again your pipeline.
+
+![Image Alt text](/images/pic3.jpg)
+
 
 
 
