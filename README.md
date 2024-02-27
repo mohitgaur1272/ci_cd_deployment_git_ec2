@@ -1,5 +1,7 @@
 # CI_CD_Deployment_WITH_GitHUB_ACTION_WORKFLOW_AND_EC2_AND_docker
 
+![Image Alt text](/images/blog.jpg)
+
 ## Introduction:-
 
 In today's fast-paced development environment, efficient and reliable software delivery is crucial. Continuous Integration (CI) and Continuous Deployment (CD) pipelines are essential tools for achieving this goal. In this blog post, we'll explore the implementation of a CI/CD pipeline using GitHub Actions and learn how to deploy the application onto an EC2 instance.
@@ -154,7 +156,7 @@ As soon as you push the code changes, your pipeline will automatically be trigge
 
 if you have any error in pipelime so check logs and fix bugs and run again your pipeline.
 
-![Image Alt text](/images/pic3.jpg)
+
 
 
 
